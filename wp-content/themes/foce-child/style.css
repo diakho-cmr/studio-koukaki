@@ -176,6 +176,8 @@
 	left: 6em;
 	top: 8em;
 	z-index: -1;
+    margin-top: 100px;
+    transition: margin-top 1s;
 }
 
 .story .title-background::after {
@@ -183,6 +185,8 @@
 	position: absolute;
 	left: 9em;
 	top: 27em;
+    margin-top: 100px;
+    transition: margin-top 1s;
 }
 
 #studio .title-background::before {
@@ -197,6 +201,11 @@
 	position: absolute;
 	right: 5em;
 	top: 4em;
+}
+
+.story__article::after, .story__article::before {
+    margin-top: 100px;
+    transition: margin-top 1s;
 }
 /* fin nouvelles fleurs pour un nouveau placement par rapport à la div title-background */
 
@@ -213,6 +222,11 @@ h2 {
 	background-position: unset;
 	text-align: center;
     opacity: 0;
+}
+
+/* Obligatoire pour appliquer les effets */
+h2 span {
+    display: inline-block;
 }
 
 /* gestion de l'opacité pour les titres avec plusieurs mots gérés en JS */
@@ -377,8 +391,8 @@ swiper-slide img {
     animation: anim-logo 1.5s forwards ease-out;
 }
 
-.anim-section {
-    animation: anim-section 1.5s ease-out;
+.anim-section::before, .anim-section::after {
+    margin-top: 0 !important;
 }
 
 /***** FIN EFFETS SECTIONS DU SITE ******/

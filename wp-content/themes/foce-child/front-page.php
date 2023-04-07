@@ -18,10 +18,10 @@ get_header();
         </section>
 
         <section id="story" class="story">
-            <div class="title-background">
+            <div class="js-slide-up title-background">
                 <h2>L'histoire</h2> 
             </div>
-            <article class="story__article">
+            <article class="story__article js-slide-up">
                 <p><?php echo get_theme_mod('story'); ?></p>
             </article>
             <?php
@@ -37,8 +37,8 @@ get_header();
             <article id="characters">
                 <h3 id="characters-title">Les personnages</h3>
                 <!--SWIPER-->
-                <?php //include(get_stylesheet_directory_uri() . '/swiper.php') ?>
-                <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
+                <?php include('swiper.php') ?>
+                <!-- <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
                 slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
                 coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
                     <?php foreach($characters_query->posts as $character): ?>
@@ -46,7 +46,7 @@ get_header();
                             <img src="<?php echo get_the_post_thumbnail_url($character->ID); ?>" alt="<?php echo $character->post_title; ?>">
                         </swiper-slide>
                     <?php endforeach;?>
-                </swiper-container>
+                </swiper-container> -->
                 <!--END SWIPER-->
             </article>
             <article id="place">

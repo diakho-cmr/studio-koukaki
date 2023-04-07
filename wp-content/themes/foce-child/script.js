@@ -4,7 +4,7 @@ const logo = document.querySelector('.parallax-img');
 const logoContainer = document.querySelector('.parallax-logo');
 const placeSection = document.querySelector('#place');
 const clouds = document.querySelectorAll('.cloud');
-const siteSections = document.querySelectorAll('section');
+const siteSections = document.querySelectorAll('.js-slide-up');
 
 function isInViewport(el) {
     //un objet avec des infos sur la taille et la position relative par rapport à la zone d'affichage
@@ -128,7 +128,7 @@ window.addEventListener('scroll', function() {
     });
     // fin effet slide up H2 au scroll
 
-    //déplacement des nuages au scroll
+    // déplacement des nuages au scroll
     if(isInViewport(placeSection)) {
         clouds.forEach(element => {
             if(!element.classList.contains('slide-left-cloud')) {
@@ -138,15 +138,15 @@ window.addEventListener('scroll', function() {
     }
     //fin déplacement des nuages au scroll
 
-    //animations des sections du site
+    //animations des sections du site /!\ j'ai modifié le ciblage pour qu'il touche les éléments directement et non plus le bloc parent !
     siteSections.forEach(element => {
-        if(element.classList.contains('story')) {
-            if(isInViewport(element.querySelector('.title-background'))) {
-                element.querySelector('.title-background').classList.add('anim-section');
+        // if(element.classList.contains('js-slide-up')) {
+            if(isInViewport(element)) {
+                element.classList.add('anim-section'); //cf ligne 394 en css et la modification des margins des fleurs
             }
-        }
+        // }
     });
-    //fin animations des sections du site
+    // fin animations des sections du site
 
 });
 // fin évènements au scroll (parallax et slide up title)
