@@ -5,6 +5,7 @@ const logoContainer = document.querySelector('.parallax-logo');
 const placeSection = document.querySelector('#place');
 const clouds = document.querySelectorAll('.cloud');
 const siteSections = document.querySelectorAll('.js-slide-up');
+const footerUl = document.querySelector('.footer-js-slide-up');
 
 function isInViewport(el) {
     //un objet avec des infos sur la taille et la position relative par rapport à la zone d'affichage
@@ -15,6 +16,14 @@ function isInViewport(el) {
         rect.left >= 0 &&
         rect.bottom <= window.innerHeight &&
         rect.right <= window.innerWidth
+    );
+}
+
+function areTopBottomInViewport(el) {
+    let rect = el.getBoundingClientRect();
+    return(
+        rect.top >= 0 && 
+        rect.bottom <= window.innerHeight
     );
 }
 
@@ -68,7 +77,7 @@ function putClassSlideUpTitle(element) {
                 setTimeout(() => {
                     title.classList.add('visible');
                     element.classList.add('slide-up-title');
-                }, i * 1000);
+                }, i * 500);
             }
         });
     } 
@@ -138,29 +147,34 @@ window.addEventListener('scroll', function() {
     }
     //fin déplacement des nuages au scroll
 
-    //animations des sections du site /!\ j'ai modifié le ciblage pour qu'il touche les éléments directement et non plus le bloc parent !
+    //animations des sections du site
     siteSections.forEach(element => {
-        // if(element.classList.contains('js-slide-up')) {
-            if(isInViewport(element)) {
-                element.classList.add('anim-section'); //cf ligne 394 en css et la modification des margins des fleurs
+        if(isInViewport(element) || areTopBottomInViewport(element)) {
+            if(!element.classList.contains('anim-section')) {
+            element.classList.add('anim-section');
             }
-        // }
+        }
     });
+    if(areTopBottomInViewport(footerUl)) {
+        if(!footerUl.classList.contains('anim-footer')) {
+        footerUl.classList.add('anim-footer');
+        }
+    }
     // fin animations des sections du site
 
 });
 // fin évènements au scroll (parallax et slide up title)
 
 //MENU BURGER
-
 const icone = document.querySelector('.navbar-full i');
 const modal = document.querySelector('.modal');
 const links = document.querySelectorAll('.navbar-full-list a');
-console.log(links);
+const navbar = document.querySelector('.navbar-full-list');
 
 icone.addEventListener('click', function () {
     modal.classList.toggle('change-modal');
     icone.classList.toggle('fa-times');
+    navbar.classList.add('slide-up-nav');
 });
 
 links.forEach(element => {
@@ -169,7 +183,26 @@ links.forEach(element => {
         icone.classList.toggle('fa-times');
     });
 });
-
-
-
 //fin MENU BURGER
+
+//SWIPER
+let mySwiper = document.getElementById('myswiper');
+
+let swiper = new Swiper('.mySwiper', {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    spaceBetween: 60,
+    coverflowEffect: {
+      rotate: 30,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    }
+});
+//FIN SWIPER

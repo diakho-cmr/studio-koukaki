@@ -9,7 +9,6 @@
  */
 
 /* ajout nouvelle section nomination aux oscars */
-
 #nomination {
 	position: relative;
 	margin-top: 3em;
@@ -45,11 +44,9 @@
 #nomination img {
     mix-blend-mode: multiply;
 }
-
 /* fin ajout nouvelle section nomination aux oscars */
 
 /* retrait images de fleurs du style parent qui se retrouvent avant/après #nomination */
-
 .site-footer::before {
     content: none;
 }
@@ -57,11 +54,9 @@
 .site-footer::after {
     content: none;
 }
-
 /* fin retrait images de fleurs du style parent qui se retrouvent avant/après #nomination */
 
 /* placement images de fleurs avant/après #nomination */
-
 #nomination::before { 
     content: url(./assets/images/Sunflower.png);
     position: absolute;
@@ -76,12 +71,15 @@
     right: -4em;
     top: -5em;
 }
-
 /* fin placement des images de fleurs avant/après #nomination */
 
 /* ajout rotation des fleurs */
-
-.title-background::after, .story__article::after, #studio .title-background::before , #studio .title-background::after , #nomination::before, #nomination::after  {
+.title-background::after, 
+.story__article::after, 
+#studio .title-background::before , 
+#studio .title-background::after, 
+#nomination::before, 
+#nomination::after {
     animation: flowers-rotating 13s linear infinite;
 }
 
@@ -93,11 +91,9 @@
         transform: rotate(360deg);
     }
 }
-
 /* fin ajout rotation des fleurs */
 
 /* ajout vidéo en fond dans le hero avec le logo par-dessus */
-
 .banner {
 	background-image: none;
     align-items: flex-start;
@@ -137,11 +133,9 @@
         min-height: 240px; /*revoir*/
     }
 }
-
 /* fin ajout vidéo en fond dans le hero avec le logo par-dessus */
 
 /* ajout de l'effet de flotement au logo dans la section hero */
-
 @keyframes logo-float {
     0% {
       transform: translate(0, 0);
@@ -158,13 +152,14 @@
     opacity: 1;
     animation: logo-float 2s ease-in-out infinite;
 }
-  
 /* fin ajout de l'effet de flotement au logo dans la section hero */
 
 /***** EFFETS TITRES H2 *****/
-
 /* retrait des fleurs pour un nouveau placement par rapport à la div title-background */
-.story h2::before, .story h2::after, #studio h2::before, #studio h2::after{
+.story h2::before, 
+.story h2::after, 
+#studio h2::before, 
+#studio h2::after{
 	content: none;
 }
 /* fin retrait des fleurs pour un nouveau placement par rapport à la div title-background */
@@ -176,8 +171,6 @@
 	left: 6em;
 	top: 8em;
 	z-index: -1;
-    margin-top: 100px;
-    transition: margin-top 1s;
 }
 
 .story .title-background::after {
@@ -185,27 +178,20 @@
 	position: absolute;
 	left: 9em;
 	top: 27em;
-    margin-top: 100px;
-    transition: margin-top 1s;
 }
 
 #studio .title-background::before {
     content: url("./assets/images/random_flower.png");
 	position: absolute;
 	left: -5em;
-	top: 0;
+	top: 3em;
 }
 
 #studio .title-background::after {
     content: url("./assets/images/flower.png");
 	position: absolute;
 	right: 5em;
-	top: 4em;
-}
-
-.story__article::after, .story__article::before {
-    margin-top: 100px;
-    transition: margin-top 1s;
+	top: 7em;
 }
 /* fin nouvelles fleurs pour un nouveau placement par rapport à la div title-background */
 
@@ -276,41 +262,55 @@ h2 span {
 }
 
 .slide-up-title {
-    animation: slide-up-title;
-    animation-duration: 0.5s;
-    animation-delay: 0.5s;
-    animation-fill-mode: forwards; /* retient les valeurs finales lorsque l'animation est terminée */
-    animation-timing-function: ease-in;
+    animation: slide-up-title 0.3s 0.5s forwards ease-in;
 }
-
 /***** FIN EFFETS TITRES H2 *****/
 
-/* swiper */
+/* SWIPER */
 
 .story #characters {
     display: block;
 }
 
-swiper-container {
+#characters-title {
+    text-align: left;
+    background-position: left;
+    margin-left: 10em;
+    padding: 1.2em 0em 1.2em 1.7em;
+}
+
+.swiper {
+    width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
 }
 
-swiper-slide {
+.swiper-slide {
     background-position: center;
     background-size: cover;
-    width: 300px;
-    height: 300px;
+    width: 380px;
+    height: 380px;
 }
 
-swiper-slide img {
+.swiper-slide img {
     display: block;
     width: 100%;
 }
-/* fin swiper */
 
-/***** DÉPLACEMENT NUAGES SECTION LIEU *****/
+.swiper-pagination-bullet-active {
+    background: rgb(255,115,70);
+}
 
+/* FIN SWIPER */
+
+/* FOOTER */
+.site-footer ul {
+    transition: padding-bottom 1s;
+    padding-bottom: 40px;
+}
+/* FIN FOOTER */
+
+/***** EFFET DÉPLACEMENT NUAGES SECTION LIEU *****/
 .story #place {
     background-image: url("./assets/images/bg_lieux.png");
 }
@@ -321,13 +321,13 @@ swiper-slide img {
 }
 
 .big-cloud {
-    bottom: 26%;
-    right: 7%;
+    bottom: 24%;
+    right: 27%;
 }
 
 .little-cloud {
-    bottom: 20%;
-    right: 37%;
+    bottom: 18%;
+    right: 57%;
 }
 
 .slide-left-cloud {
@@ -342,12 +342,12 @@ swiper-slide img {
         transform: translateX(0px);
     }
     to {
-        transform: translateX(-300px);
+        transform: translateX(300px);
     }
 }
+/***** FIN EFET DÉPLACEMENT NUAGES SECTION LIEU *****/
 
-/***** EFFETS SECTIONS DU SITE ******/
-
+/***** EFFETS SLIDE-UP SECTIONS/ARTICLES DU SITE ******/
 @keyframes anim-banner {
     from {
         opacity: 0;
@@ -370,15 +370,24 @@ swiper-slide img {
     }
 }
 
-@keyframes anim-section {
-    from {
-        opacity: 0;
-        transform: translateY(200px);
-    }
-    to {
-        transform: translateY(0px);
-        opacity: 1;
-    }
+#nomination,
+.story .title-background::before, 
+.story .title-background::after, 
+.story__article::after, 
+.story__article::before, 
+.story > div h2,
+#studio,
+.story #characters,
+.story #place,
+.story #place h3  {
+    transition: margin-top 1s;
+    margin-top: 100px;
+}
+
+#studio .studio-content,
+.story #place > div p {
+    transition: margin-top 1s;
+    margin-top: -100px;
 }
 
 .anim-banner {
@@ -391,16 +400,22 @@ swiper-slide img {
     animation: anim-logo 1.5s forwards ease-out;
 }
 
-.anim-section::before, .anim-section::after {
-    margin-top: 0 !important;
+.anim-section::before, .anim-section::after{
+    margin-top: 0 !important; /* pour l'effet slide-up de la section ou l'article */
 }
 
-/***** FIN EFFETS SECTIONS DU SITE ******/
+.anim-section {
+    margin-top: 0 !important; /* pour l'effet slide-up des sections/articles */
+}
 
-/***** MENU *****/
+.anim-footer {
+    padding-bottom: 0px !important; /* pour l'effet slide-up du footer */
+}
 
+/***** FIN EFFETS SLIDE-UP SECTIONS/ARTICLES DU SITE ******/
+
+/***** MENU BURGER *****/
 @media screen and (min-width: 700px) {
-
     .main-navigation {
         padding-left: 25%;
         display: grid;
@@ -408,23 +423,19 @@ swiper-slide img {
         align-items: center;
         display: none;
     }
-
     .main-navigation p {
         justify-self: center;
         margin: 0;
         padding: 0;
     }
-
     .main-navigation .menu-toggle {
         display: block;
         margin: 0;
         padding: 0;
     }
-
     .main-navigation .nav-menu {
         display: none;
     }
-
 }
 
 /* retirer style des liens par défaut */
@@ -531,12 +542,32 @@ a {
 }
 
 /* fleurs et personnages en décoration du menu */
+@keyframes menu-cats-float {
+    0% {
+      transform: translate(0, 0) scale(0.6);
+    }
+    50% {
+      transform: translateY(10px) scale(0.6);
+    }
+    100% {
+      transform: translate(0, 0) scale(0.6);
+    }
+}
+
+@keyframes menu-flowers-rotating {
+    from {
+        transform: rotate(0deg) scale(0.6);
+    }
+    to {
+        transform: rotate(360deg) scale(0.6);
+    }
+}
+
 #link-story::before { 
     content: url(./assets/images/orchid.png);
     position: absolute;
     top: 1em;
     left: -2em;
-    animation: flowers-rotating 6s linear infinite;
 }
 
 #link-story::after { 
@@ -544,7 +575,6 @@ a {
     position: absolute;
     right: 3em;
     top: 1em;
-    animation: flowers-rotating 6s linear infinite;
 }
 
 #link-characters::before {
@@ -552,7 +582,6 @@ a {
     position: absolute;
     top: 2.5em;
     left: 4.5em;
-    animation: logo-float 2s ease-in-out infinite;
 }
 
 #link-characters::after {
@@ -560,7 +589,6 @@ a {
     position: absolute;
     right: -2em;
     top: 5em;
-    animation: flowers-rotating 6s linear infinite;
 }
 
 #link-place::before {
@@ -568,7 +596,6 @@ a {
     position: absolute;
     top: 6.5em;
     left: 2em;
-    animation: flowers-rotating 6s linear infinite;
 }
 
 #link-place::after {
@@ -576,7 +603,6 @@ a {
     position: absolute;
     right: 3em;
     top: 7em;
-    animation: logo-float 2s ease-in-out infinite;
 }
 
 #link-studio::before {
@@ -584,14 +610,106 @@ a {
     position: absolute;
     top: 11em;
     left: 1em;
-    animation: logo-float 2s ease-in-out infinite;
 }
 
 #link-studio::after {
     content: url(./assets/images/hibiscus_footer.png);
     position: absolute;
     right: -8em;
-    top: 8em;
+    bottom: -6em;
+    transform: scale(0.8);
 }
 
-/***** FIN MENU *****/
+#link-story::before,
+#link-story::after,
+#link-characters::after,
+#link-place::before {
+    animation: menu-flowers-rotating 6s linear infinite;
+}
+
+#link-studio::before,
+#link-place::after,
+#link-characters::before
+{
+    animation: menu-cats-float 2s ease-in-out infinite;
+}
+
+#link-story::before,
+#link-story::after,
+#link-characters::before,
+#link-characters::after,
+#link-place::before,
+#link-place::after,
+#link-studio::before,
+#link-studio::after {
+    pointer-events: none; 
+}
+
+@keyframes slide-up-nav {
+    from {
+ 
+        transform: translateY(100px);
+    }
+    to {
+      
+        transform: translateY(0px);
+    }
+}
+
+.slide-up-nav{
+    animation: slide-up-nav 1s forwards ease-in-out;
+}
+/***** FIN MENU BURGER *****/
+
+/***** GESTION DES MARGINS/PADDINGS ENSEMBLE DU SITE ET AUJUSTEMENTS POSITIONS *****/
+#story {
+    margin-top: 3em;
+}
+
+.story__article {
+    padding-bottom: 5em;
+}
+
+#studio {
+    padding-top: 3em;
+}
+
+.story #place h3 {
+    margin-bottom: 0em;
+}
+
+#studio > div::before {
+    top: 48%;
+}
+
+.story__article::before {
+    top: 11em;
+}
+/***** FIN GESTION DES MARGINS/PADDINGS ENSEMBLE DU SITE *****/
+
+/***** MEDIA QUERIES *****/
+@media all and (max-width: 920px) {
+    /* retrait des animations de fleurs et de chats */
+    .story .title-background::before, 
+    .story .title-background::after,
+    #studio .title-background::before,
+    #studio .title-background::after,
+    #nomination::before,
+    #nomination::after,
+    #link-story::before,
+    #link-story::after,
+    #link-characters::before,
+    #link-characters::after,
+    #link-place::before,
+    #link-place::after,
+    #link-studio::before,
+    #link-studio::after  {
+        content: '';
+    }
+    #nomination > div {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/***** END MEDIA QUERIES *****/
