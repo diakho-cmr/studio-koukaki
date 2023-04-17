@@ -80,6 +80,4 @@
     </main>
     <!-- END MAIN -->
 
-    <!-- FOOTER -->
     <?php get_footer(); ?>
-    <!-- END FOOTER -->

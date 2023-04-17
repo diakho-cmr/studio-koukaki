@@ -9,14 +9,15 @@
  * @package Fleurs_d\'oranger_&_Chats_errants
  */
 ?>
-
+    <!-- FOOTER -->
 	<footer id="colophon" class="site-footer">
         <ul class="footer-js-slide-up">
             <li><a href="#">Mentions Légales</a></li>
             <li><a href="#">STUDIO KOUKAKI</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
-	</footer><!-- #colophon -->
+	</footer>
+    <!-- END FOOTER -->
 </div><!-- #page -->
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script><!-- swiperjs script-->
